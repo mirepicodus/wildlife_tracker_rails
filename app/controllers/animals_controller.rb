@@ -14,4 +14,19 @@ class AnimalsController < ApplicationController
       render('animals/index.html.erb')
     end
   end
+
+  def show
+    @animals = Animal.all
+    @animal = Animal.find(params[:id])
+    render('animals/show.html.erb')
+  end
+
+  def update
+    @animal = Animal.find(params[:id])
+    if @animal.update(params[:animal])
+      render('animals/success.html.erb')
+    else
+      render('animals/index.html.erb')
+    end
+  end
 end
