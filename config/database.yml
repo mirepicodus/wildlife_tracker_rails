@@ -1,0 +1,12 @@
+
+default: &default
+  adapter: postgresql
+
+development:
+  <<: *default
+  database: wildlife_tracker_development
+
+test:
+  <<: *default
+  database: wildlife_tracker_test
+
