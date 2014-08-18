@@ -5,3 +5,18 @@
     <li><a href='/<% animal.id %>'><%= animal.name %></a></li>
   <% end %>
 </ul>
+
+<% if @animal.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @animal.errors.full_messages.each do |animal| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/" method="post">
+  <label for="species">Species</label>
+  <input id="species" name="animal[name]" type="text" value="<% @animal.name %>">
+  <button>Add species</button>
+</form>
