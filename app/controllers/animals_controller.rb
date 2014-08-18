@@ -19,7 +19,6 @@ class AnimalsController < ApplicationController
   def show
     @animals = Animal.all
     @animal = Animal.find(params[:id])
-    @sightings = @animal.sightings.all
     @sighting = @animal.sightings.new
     render('animals/show.html.erb')
   end
