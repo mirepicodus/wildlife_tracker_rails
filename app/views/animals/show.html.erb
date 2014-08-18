@@ -1,5 +1,23 @@
 <h2><%= @animal.name %></h2>
 
+<h3>Sightings:</h3>
+<ol>
+  <% @sightings.each do |sighting| %>
+    <li><%= sighting.date %>, <%= sighting.lat %>:<%= sighting.long %></li>
+  <% end %>
+</ol>
+
+<h3>Record new sighting:</h3>
+<form action="/<%= @animal.id %>" method="post">
+  <label for="sighting_date">Date</label>
+  <input id="sighting_date" name="sighting[date]" type="date" value="<% @sighting.date %>">
+  <label for="sighting_lat">Latitude</label>
+  <input id="sighting_lat" name="sighting[lat]" type="text" value="<% @sighting.lat %>">
+  <label for="sighting_long">Longitude</label>
+  <input id="sighting_long" name="sighting[long]" type="text" value="<% @sighting.long %>">
+  <button>Add sighting</button>
+</form>
+
 <p><a href='/'>Back to Animal Tracker</a></p>
 
 <h3> Edit species type</h3>

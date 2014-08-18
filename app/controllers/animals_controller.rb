@@ -19,6 +19,8 @@ class AnimalsController < ApplicationController
   def show
     @animals = Animal.all
     @animal = Animal.find(params[:id])
+    @sightings = @animal.sightings.all
+    @sighting = @animal.sightings.new
     render('animals/show.html.erb')
   end
 
@@ -34,6 +36,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animals =Animal.all
     @animal = Animal.find(params[:id])
+    @animal.sightings.each {|sighting| sighting.destroy}
     @animal.destroy
     render('animals/index.html.erb')
   end
