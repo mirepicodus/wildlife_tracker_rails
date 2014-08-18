@@ -17,6 +17,10 @@
   <input name="_method" type="hidden" value="patch">
   <label for="animal_species">Species</label>
   <input id="animal_species" name="animal[name]" type="text" value="<%@animal.name %>">
-
   <button> Change species type</button>
 </form>
+
+<p><a href="/<%=@animal.id %>"
+  data-confirm="Are you sure"
+  data-method="Delete"
+  rel="nofollow">Destroy Species</a></p>
