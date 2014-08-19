@@ -26,7 +26,7 @@ class AnimalsController < ApplicationController
   def update
     @animal = Animal.find(params[:id])
     if @animal.update(params[:animal])
-      render('animals/success.html.erb')
+      redirect_to("/#{@animal.id}")
     else
       render('animals/index.html.erb')
     end

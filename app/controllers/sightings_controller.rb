@@ -4,7 +4,7 @@ class SightingsController < ApplicationController
     @animal = Animal.find(params[:id])
     @sighting = @animal.sightings.new(params[:sighting])
     if @sighting.save
-      render('/animals/success.html.erb')
+      redirect_to("/#{@animal.id}")
     else
       render('/animals/show.html.erb')
     end
@@ -21,11 +21,10 @@ class SightingsController < ApplicationController
   end
 
   def update
-    @regions = Region.all
     @sighting = Sighting.find(params[:id])
     @sighting.update(params[:sighting])
     @animal = @sighting.animal
-    render('/animals/show.html.erb')
+    redirect_to("/#{@animal.id}")
   end
 
   def destroy
