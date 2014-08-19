@@ -14,9 +14,20 @@ class SightingsController < ApplicationController
     render('sightings/show_sighting.html.erb')
   end
 
-  # def update
-  #   @animal = Animal.find(params[:id])
+  def update
+    @sighting = Sighting.find(params[:id])
+    @sighting.update(params[:sighting])
+    @animal = @sighting.animal
+    render('/animals/show.html.erb')
+  end
 
-  # end
+  def destroy
+    @sighting = Sighting.find(params[:id])
+    @animal = Animal.find(@sighting.animal_id)
+    @sighting.destroy
+    render('/animals/show.html.erb')
+  end
 
 end
+
+

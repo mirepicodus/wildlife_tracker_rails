@@ -1,4 +1,4 @@
-<h2><%= @animal.name %></h2>
+<h2><%= @animal.name %> Tracker</h2>
 
 <h3>Sightings:</h3>
 <ol>
@@ -20,7 +20,9 @@
 
 <p><a href='/'>Back to Animal Tracker</a></p>
 
-<h3> Edit species type</h3>
+<hr>
+
+<h3>Edit name of species</h3>
 
 <% if @animal.errors.any? %>
   <h3>Please fix this error:<h3>
