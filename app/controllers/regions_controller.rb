@@ -21,4 +21,11 @@ class RegionsController < ApplicationController
     @region.update(params[:region])
     render('regions/show_regions.html.erb')
   end
+
+  def destroy
+    @regions = Region.all
+    @region = Region.find(params[:id])
+    @region.destroy
+    render('regions/index.html.erb')
+  end
 end
