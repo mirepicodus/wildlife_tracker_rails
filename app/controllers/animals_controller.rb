@@ -15,11 +15,11 @@ class AnimalsController < ApplicationController
     end
   end
 
-
   def show
+    @regions = Region.all
     @animals = Animal.all
     @animal = Animal.find(params[:id])
-    @sighting = @animal.sightings.new
+    @sighting = Sighting.new(animal_id: @animal.id)
     render('animals/show.html.erb')
   end
 
