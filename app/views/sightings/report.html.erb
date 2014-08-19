@@ -1,0 +1,22 @@
+<h2>Sightings Report</h2>
+<ol>
+<% @sightings.each do |sighting| %>
+  <li><a href="/sightings/<%=sighting.id%>"><%= sighting.animal.name %>, <%= sighting.date %>, <%= sighting.region.name %>, <%= sighting.lat %>:<%= sighting.long %></a></li>
+<% end %>
+</ol>
+
+<form id='reports' action="/reports" method="post">
+  <label for="sightings_start_date">Start date</label>
+  <input id="sightings_start_date" name="sightings[start_date]" type="text">
+  <label for="sightings_end_date">End date</label>
+  <input id="sightings_end_date" name="sightings[end_date]" type="text">
+  <select form="reports" name="sightings[region_id]">
+    <option value='' selected></option>
+    <% @regions.each do |region| %>
+      <option value="<%= region.id %>"><%= region.name %></option>
+    <% end %>
+  </select>
+  <button>Run report</button>
+</form>
+
+<p><a href='/'>Back to Animal Tracker</a></p>
