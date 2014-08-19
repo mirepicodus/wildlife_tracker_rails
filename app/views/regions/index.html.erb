@@ -2,7 +2,7 @@
 
 <ol>
   <% @regions.each do |region| %>
-  <li><%= region.name %></li>
+  <li><a href='/regions/<%= region.id %>'><%= region.name %></a></li>
   <% end %>
 </ol>
 
