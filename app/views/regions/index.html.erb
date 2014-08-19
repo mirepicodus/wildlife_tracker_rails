@@ -6,4 +6,19 @@
   <% end %>
 </ol>
 
+<% if @region.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @region.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/regions/" method="post">
+  <label for="regions">Region</label>
+  <input id="regions" name="region[name]" type="text" value="<% @region.name %>">
+  <button>Add region</button>
+</form>
+
 <p><a href='/'>Back to Animal Tracker</a></p>
